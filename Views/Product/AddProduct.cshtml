@@ -1,0 +1,66 @@
+﻿@model AdvertisementsAPI.Models.Productdetail 
+
+@{
+    ViewData["Title"] = "AddProduct";
+}
+<div class="row justify-content-md-center">
+    <div class="col-md-5">
+        @using (Html.BeginForm("AddProduct", "Product", FormMethod.Post))
+        {
+            //@Html.ValidationSummary()
+            @Html.AntiForgeryToken()
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">AddProduct</div>
+                </div>
+                <div class="card-body">
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ProductName)
+                        @Html.TextBoxFor(m => m.ProductName, "", new { @class = "form-control", @placeholder = "Product Name" })
+                        @Html.ValidationMessageFor(m => m.ProductName, "", new { @class = "badge badge-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ProductCategory)
+                        @Html.TextBoxFor(m => m.ProductCategory, "", new { @class = "form-control", @placeholder = "Product Category" })
+                        @Html.ValidationMessageFor(m => m.ProductCategory, "", new { @class = "badge badge-danger" })
+
+                    </div> 
+                    
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ProductPrice)
+                        @Html.TextBoxFor(m => m.ProductPrice, "", new { @class = "form-control", @placeholder = "Product Price" })
+                        @Html.ValidationMessageFor(m => m.ProductPrice, "", new { @class = "badge badge-danger" })
+
+                    </div>  
+
+                    @*  <div class="form-group">
+                @Html.LabelFor(m => m.Email)
+                @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "Email" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "badge badge-danger" })
+                @if (ViewBag.error != null)
+                {
+                <span class="badge badge-danger">@ViewBag.error</span>
+                }
+                </div>*@
+                    @* <div class="form-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "badge badge-danger" })
+                </div>
+                <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword)
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Confim Password" })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "badge badge-danger" })
+                </div>*@
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-danger" value="AddProduct" />
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

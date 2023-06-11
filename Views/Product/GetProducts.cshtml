@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AdvertisementsAPI.Models.Productdetail>
+
+@{
+    ViewData["Title"] = "GetProduct";
+}
+
+
+
+
+<table class="table table-responsive table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductPrice)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.ProductName
+                </td>
+                <td>
+                    @item.ProductCategory
+                </td>
+                <td>
+                    @item.ProductPrice
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+                </td>
+            </tr>
+
+        }
+
+
+    </tbody>
+</table>
+
+    }
